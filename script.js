@@ -11,6 +11,8 @@ function createTiles() {
         let tile = document.createElement("div");
         tile.classList.add("tile");
         board.appendChild(tile);
+        tile.style.height = "20px";
+        tile.style.width = "20px";
     }
 }
 
