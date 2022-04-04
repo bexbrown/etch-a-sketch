@@ -5,12 +5,12 @@ let board = document.querySelector("#board");
 
 
 function createTiles() {
-    for (let i = 0; i < 256; i++) {
+    for (let i = 0; i < 10000; i++) {
         let tile = document.createElement("div");
         tile.classList.add("tile");
         board.appendChild(tile);
-        tile.style.height = "20px";
-        tile.style.width = "20px";
+        tile.style.height = "3.2px";
+        tile.style.width = "3.2px";
         tile.addEventListener("mouseover", function () {
             tile.style.backgroundColor = "black";
 
@@ -29,6 +29,7 @@ clearButton.addEventListener("click", clearButtonClick);
 
 function clearButtonClick() {
 
+
     function removeAllChildNodes(parent) {
         while (parent.firstChild) {
             parent.removeChild(parent.firstChild);
@@ -36,11 +37,9 @@ function clearButtonClick() {
     }
     removeAllChildNodes(board);
 
-    let result = window.prompt("Pick a number between 1 and 100");
 
-
-    let totalTiles = result * result;
-    tileLength = 320 / result;
+    let totalTiles = 100 * 100;
+    tileLength = 320 / 100;
 
     function createNewTiles(totalTiles) {
         for (let i = 0; i < totalTiles; i++) {
