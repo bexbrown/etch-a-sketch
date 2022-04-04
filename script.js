@@ -29,17 +29,18 @@ clearButton.addEventListener("click", clearButtonClick);
 
 function clearButtonClick() {
 
-    let result = window.prompt("Pick a number between 1 and 100");
-
-
-    let totalTiles = result * result;
-    tileLength = 320 / result;
     function removeAllChildNodes(parent) {
         while (parent.firstChild) {
             parent.removeChild(parent.firstChild);
         }
     }
     removeAllChildNodes(board);
+
+    let result = window.prompt("Pick a number between 1 and 100");
+
+
+    let totalTiles = result * result;
+    tileLength = 320 / result;
 
     function createNewTiles(totalTiles) {
         for (let i = 0; i < totalTiles; i++) {
