@@ -6,25 +6,24 @@ board.style.border = "black solid 1px";
 
 
 function createTiles() {
-    //insert number in place of 256
     for (let i = 0; i < 256; i++) {
         let tile = document.createElement("div");
         tile.classList.add("tile");
         board.appendChild(tile);
         tile.style.height = "20px";
         tile.style.width = "20px";
+        tile.addEventListener("mouseover", function () {
+            tile.style.backgroundColor = "black";
+
+        })
+        tile.addEventListener("mouseout", function () {
+            tile.style.opacity = 0;
+            tile.style.transition = "opacity 3s linear";
+        })
     }
 }
 
 createTiles();
-
-
-
-function numberOfTiles(result) {
-    return result ^ 2;
-}
-
-
 
 
 let clearButton = document.querySelector("button");
@@ -56,8 +55,16 @@ function clearButtonClick() {
             tile.style.length = tileLength + "px";
             tile.style.width = tileLength + "px";
 
+            tile.addEventListener("mouseover", function () {
+                tile.style.backgroundColor = "black";
+            })
+            tile.addEventListener("mouseout", function () {
+                tile.style.opacity = 0;
+                tile.style.transition = "opacity 3s linear";
+            })
         }
-    }
+    };
+
     createNewTiles(totalTiles);
 };
 
