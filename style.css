@@ -1,13 +1,55 @@
-#board {
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    font-size: 25px;
+}
+
+#etch-a-sketch {
+    background-color: red;
+    border-radius: 2%;
+    height: 380px;
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#board { 
+    margin-top: 30px;
     height: 320px;
     width: 320px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    background-color: grey;;
+}
+
+.circle {
+    background-color: white;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+}
+
+.clear-toggle-bar {
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .tile {
-    background-color: white;
+    background-color: grey;
+}
+
+button {
+    margin-top: 1.25%;
 }
 /* 
 .tile:hover {

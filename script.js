@@ -1,7 +1,6 @@
 
 
 let board = document.querySelector("#board");
-board.style.border = "black solid 1px";
 
 
 
@@ -16,10 +15,7 @@ function createTiles() {
             tile.style.backgroundColor = "black";
 
         })
-        tile.addEventListener("mouseout", function () {
-            tile.style.opacity = 0;
-            tile.style.transition = "opacity 3s linear";
-        })
+
     }
 }
 
@@ -36,42 +32,31 @@ function clearButtonClick() {
     let result = window.prompt("Pick a number between 1 and 100");
 
 
-    if (result >= 0 && result <= 100) {
-        console.log(result)
-        let totalTiles = result * result;
-        console.log(totalTiles);
-        tileLength = 320 / result;
-        console.log(tileLength)
-
-        function removeAllChildNodes(parent) {
-            while (parent.firstChild) {
-                parent.removeChild(parent.firstChild);
-            }
+    let totalTiles = result * result;
+    tileLength = 320 / result;
+    function removeAllChildNodes(parent) {
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
         }
-        removeAllChildNodes(board);
-
-        function createNewTiles(totalTiles) {
-            for (let i = 0; i < totalTiles; i++) {
-                let tile = document.createElement("div");
-                tile.classList.add("tile");
-                board.appendChild(tile);
-                tile.style.length = tileLength + "px";
-                tile.style.width = tileLength + "px";
-
-                tile.addEventListener("mouseover", function () {
-                    tile.style.backgroundColor = "black";
-                })
-                tile.addEventListener("mouseout", function () {
-                    tile.style.opacity = 0;
-                    tile.style.transition = "opacity 3s linear";
-                })
-            }
-        };
-
-        createNewTiles(totalTiles);
-    } else {
-        clearButtonClick();
     }
+    removeAllChildNodes(board);
+
+    function createNewTiles(totalTiles) {
+        for (let i = 0; i < totalTiles; i++) {
+            let tile = document.createElement("div");
+            tile.classList.add("tile");
+            board.appendChild(tile);
+            tile.style.length = tileLength + "px";
+            tile.style.width = tileLength + "px";
+
+            tile.addEventListener("mouseover", function () {
+                tile.style.backgroundColor = "black";
+            })
+
+        }
+    };
+
+    createNewTiles(totalTiles);
 
 
 };
